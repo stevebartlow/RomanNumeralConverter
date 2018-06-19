@@ -154,6 +154,14 @@ namespace RomanNumeralConverterTests
             Assert.ThrowsException<NotImplementedException>(() => converter.Convert(-10));
         }
 
+        //Invalid string
+        [TestMethod]
+        public void ConvertABCToFail()
+        {
+            RomanConverter converter = new RomanConverter();
+            Assert.ThrowsException<Exception>(() => converter.Convert("ABC"));
+        }
+
 
     }
 }

@@ -51,11 +51,16 @@ namespace RomanNumeralConverter
             int number = 0;
             romanString = romanString.ToUpper();
 
-            List<char> romanStringList = romanString.ToArray().ToList();
+            char[] romanStringList = romanString.ToArray();
 
-            for (int i = 0; i < romanStringList.Count; i++)
+            for (int i = 0; i < romanStringList.Length; i++)
             {
-                if (i + 1 < romanStringList.Count)
+                if (!numberValues.ContainsKey(romanStringList[i]))
+                {
+                    throw new Exception($"{romanString} is not a valid Roman Numeral");
+                }
+
+                if (i + 1 < romanStringList.Length)
                 {
                     if (numberValues[romanStringList[i]] < numberValues[romanStringList[i + 1]])
                     {
