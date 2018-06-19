@@ -153,6 +153,12 @@ namespace RomanNumeralConverterTests
             RomanConverter converter = new RomanConverter();
             Assert.ThrowsException<NotImplementedException>(() => converter.Convert(-10));
         }
+        [TestMethod]
+        public void ConvertMMMMCMXCIXToFail()
+        {
+            RomanConverter converter = new RomanConverter();
+            Assert.ThrowsException<Exception>(() => converter.Convert("MMMMCMXCIX")); //This is not a valid roman numeral, techincally 4000 is IV
+        }
 
         //Invalid string
         [TestMethod]

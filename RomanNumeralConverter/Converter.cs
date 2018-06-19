@@ -70,6 +70,12 @@ namespace RomanNumeralConverter
                 }
                 number += numberValues[romanStringList[i]];
             }
+
+            if (number > 3999)
+            {
+                throw new Exception("Cannot reliably convert numbers greater than 3999 (MMMCMXCIX)");
+            }
+
             return number;
         }
         private string NumberToRomanNumeral(int number)
